@@ -1,15 +1,15 @@
 {
-  "name": "web-components-demo",
+  "name": "web-components",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "watch": "ng build --single-bundle --aot --sourceMap=true --watch",
-    "build-prod": "ng build --prod --single-bundle --output-hashing=none",
-    "package-es5": "cat dist/web-components-demo/{scripts,main-es5}.js | gzip > elements-es5.js.gz",
-    "package-es2015": "cat dist/web-components-demo/{scripts,main-es2015}.js | gzip > elements-es2015.js.gz",
+    "watch": "ng build $WC --single-bundle --sourceMap=true --watch",
+    "build-prod": "ng build $WC --prod --single-bundle --output-hashing=none",
+    "package-es5": "cat dist/$WC/{scripts,main-es5}.js | gzip > $WC-es5.js.gz",
+    "package-es2015": "cat dist/$WC/{scripts,main-es2015}.js | gzip > $WC-es2015.js.gz",
     "create-bundles": "npm run build-prod && npm run package-es5 && npm run package-es2015",
-    "serve": "http-server dist/web-components-demo --gzip -c-1",
+    "serve": "http-server dist/$WC --gzip -c-1",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

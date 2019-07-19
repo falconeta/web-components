@@ -21,6 +21,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "elegant-theme": [
+        "dist/elegantTheme"
+      ],
+      "elegant-theme/*": [
+        "dist/elegantTheme/*"
+      ]
+    }
   }
 }
