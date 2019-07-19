@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "elements-demo": {
+    "web-components-demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "ngx-build-plus:browser",
           "options": {
-            "outputPath": "dist/elements-demo",
+            "outputPath": "dist/web-components-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "elements-demo:build"
+            "browserTarget": "web-components-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "elements-demo:build:production"
+              "browserTarget": "web-components-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "elements-demo:build"
+            "browserTarget": "web-components-demo:build"
           }
         },
         "test": {
@@ -114,16 +114,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "elements-demo:serve"
+            "devServerTarget": "web-components-demo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "elements-demo:serve:production"
+              "devServerTarget": "web-components-demo:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "elements-demo"
+  "defaultProject": "web-components-demo"
 }
