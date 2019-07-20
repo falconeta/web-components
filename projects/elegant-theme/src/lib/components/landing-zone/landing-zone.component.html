@@ -1,0 +1,5 @@
+<div
+  *ngIf="page && page.subCollections?.photos?.length"
+  class="photo"
+  [ngStyle]="{ 'background-image': 'url(' + page.subCollections.photos[0].url + ')' }"
+></div>
