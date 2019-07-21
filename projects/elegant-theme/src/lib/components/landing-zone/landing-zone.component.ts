@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { NGXLogger } from 'ngx-logger';
+import { PagePhoto, PageContent } from '../../interfaces/page-collection';
 
 @Component({
   selector: 'wc-landing-zone',
@@ -9,11 +10,12 @@ import { NGXLogger } from 'ngx-logger';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class LandingZoneComponent extends BaseComponent implements OnInit {
-  @Input() page: any;
+  @Input() photos: PagePhoto[];
+  @Input() contents: PageContent[];
 
   constructor(protected log: NGXLogger) {
     super(log);
-    this.logPrefix = '[LANDING PAGE] -';
+    this.logPrefix = '[LANDING ZONE] -';
   }
 
   ngOnInit() {
