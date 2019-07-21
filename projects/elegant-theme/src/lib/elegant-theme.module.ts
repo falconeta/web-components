@@ -8,9 +8,10 @@ import { environment } from '../environments/environment';
 
 import { LoggerMonitor } from './services';
 import { LandingZoneComponent, BaseComponent } from './components';
+import { HeaderComponent } from './components/header/header.component';
 
-const components: typeof BaseComponent[] = [LandingZoneComponent];
-const componentsWithSelector = new Map<string, typeof BaseComponent>([['wc-landing-zone', LandingZoneComponent]]);
+const components: typeof BaseComponent[] = [LandingZoneComponent, HeaderComponent];
+const componentsWithSelector = new Map<string, typeof BaseComponent>([['wc-landing-zone', LandingZoneComponent], ['wc-header', HeaderComponent]]);
 
 @NgModule({
   declarations: [...components],
