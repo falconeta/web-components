@@ -4,14 +4,21 @@ import { Injector, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { LoggerModule, NGXLogger } from 'ngx-logger';
 
+import { MatProgressBarModule, MatButtonModule, MatIconModule } from '@angular/material';
+
 import { environment } from '../environments/environment';
 
 import { LoggerMonitor } from './services';
-import { LandingZoneComponent, BaseComponent } from './components';
-import { HeaderComponent } from './components/header/header.component';
+import { LandingZoneComponent, BaseComponent, PhotoGalleryDialogComponent, HeaderComponent } from './components';
 
-const components: typeof BaseComponent[] = [LandingZoneComponent, HeaderComponent];
-const componentsWithSelector = new Map<string, typeof BaseComponent>([['wc-landing-zone', LandingZoneComponent], ['wc-header', HeaderComponent]]);
+const material = [MatProgressBarModule, MatButtonModule, MatIconModule];
+
+const components: typeof BaseComponent[] = [LandingZoneComponent, HeaderComponent, PhotoGalleryDialogComponent];
+const componentsWithSelector = new Map<string, typeof BaseComponent>([
+  ['wc-landing-zone', LandingZoneComponent],
+  ['wc-header', HeaderComponent],
+  ['wc-photo-gallery-dialog', PhotoGalleryDialogComponent]
+]);
 
 @NgModule({
   declarations: [...components],
@@ -20,7 +27,8 @@ const componentsWithSelector = new Map<string, typeof BaseComponent>([['wc-landi
     HttpClientModule,
     LoggerModule.forRoot({
       level: environment.typeLog
-    })
+    }),
+    ...material
   ],
   entryComponents: [...components],
   exports: [...components]

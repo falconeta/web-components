@@ -110,6 +110,11 @@
     },
     "elegantTheme": {
       "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "projects/elegant-theme",
       "sourceRoot": "projects/elegant-theme/src",
       "prefix": "wc",
