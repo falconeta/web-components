@@ -10,6 +10,7 @@ import { environment } from '../environments/environment';
 
 import { LoggerMonitor } from './services';
 import { LandingZoneComponent, BaseComponent, PhotoGalleryDialogComponent, HeaderComponent } from './components';
+import { ParallaxDirective } from './directives';
 
 const material = [MatProgressBarModule, MatButtonModule, MatIconModule];
 
@@ -20,8 +21,10 @@ const componentsWithSelector = new Map<string, typeof BaseComponent>([
   ['wc-photo-gallery-dialog', PhotoGalleryDialogComponent]
 ]);
 
+const directives = [ParallaxDirective];
+
 @NgModule({
-  declarations: [...components],
+  declarations: [...components, ...directives],
   imports: [
     BrowserModule,
     HttpClientModule,

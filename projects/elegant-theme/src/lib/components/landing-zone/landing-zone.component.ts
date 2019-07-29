@@ -13,6 +13,9 @@ export class LandingZoneComponent extends BaseComponent implements OnInit {
   @Input() photos: PagePhoto[];
   @Input() contents: PageContent[];
 
+  @Input() scrollData: UIEvent;
+  @Input() containerResized: Element;
+
   constructor(protected log: NGXLogger) {
     super(log);
     this.logPrefix = '[LANDING ZONE] -';
