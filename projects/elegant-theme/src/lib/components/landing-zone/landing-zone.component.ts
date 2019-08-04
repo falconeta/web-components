@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, OnDestroy } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { NGXLogger } from 'ngx-logger';
 import { PagePhoto, PageContent } from '../../interfaces/page-collection';
+import { ParallaxData } from '../../interfaces';
 
 @Component({
   selector: 'wc-landing-zone',
@@ -9,12 +10,10 @@ import { PagePhoto, PageContent } from '../../interfaces/page-collection';
   styleUrls: ['./landing-zone.component.scss'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class LandingZoneComponent extends BaseComponent implements OnInit {
+export class LandingZoneComponent extends BaseComponent implements OnInit, OnDestroy {
   @Input() photos: PagePhoto[];
   @Input() contents: PageContent[];
-
-  @Input() scrollData: UIEvent;
-  @Input() containerResized: Element;
+  @Input() parallaxData: ParallaxData;
 
   constructor(protected log: NGXLogger) {
     super(log);
@@ -23,5 +22,9 @@ export class LandingZoneComponent extends BaseComponent implements OnInit {
 
   ngOnInit() {
     super.ngOnInit();
+  }
+
+  ngOnDestroy() {
+    this.log.debug(`${this.logPrefix} destroyed...`);
   }
 }

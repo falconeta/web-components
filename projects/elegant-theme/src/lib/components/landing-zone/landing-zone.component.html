@@ -1,6 +1,6 @@
 <div class="landing-zone-container ">
   <div *ngIf="photos?.length" class="photo" [ngStyle]="{ 'background-image': 'url(' + photos[0].url + ')' }"></div>
-  <div wcParallax [ratio]="1.5" [scrollData]="scrollData" [containerResized]="containerResized" class="cont-intro-text" *ngIf="contents?.length">
+  <div wcParallax [ratio]="1.5" [scrollData]="parallaxData?.scroll" [containerResized]="parallaxData?.containerElement" class="cont-intro-text" *ngIf="contents?.length">
     <div class="first-intro-text" [innerHTML]="contents[0].value"></div>
     <div *ngIf="contents?.length > 1" class="second-intro-text" [innerHTML]="contents[1].value"></div>
   </div>
