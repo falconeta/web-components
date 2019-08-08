@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter, OnChanges, SimpleChanges, Injector } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { NGXLogger } from 'ngx-logger';
 import { PagePhoto } from '../../interfaces/page-collection';
@@ -17,8 +17,8 @@ export class PhotoGalleryDialogComponent extends BaseComponent implements OnInit
 
   @Output() closed: EventEmitter<string>;
 
-  constructor(protected log: NGXLogger) {
-    super(log);
+  constructor(protected log: NGXLogger, protected injector: Injector) {
+    super(log, injector);
 
     this.logPrefix = '[PHOTO GALLERY DIALOG] -';
     this.closed = new EventEmitter<string>();

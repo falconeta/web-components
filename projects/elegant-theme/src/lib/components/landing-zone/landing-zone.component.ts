@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewEncapsulation, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, OnDestroy, Injector } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { NGXLogger } from 'ngx-logger';
 import { PagePhoto, PageContent } from '../../interfaces/page-collection';
-import { ParallaxData } from '../../interfaces';
+import { ParallaxData, ComponentInfo } from '../../interfaces';
 
 @Component({
   selector: 'wc-landing-zone',
@@ -15,13 +15,20 @@ export class LandingZoneComponent extends BaseComponent implements OnInit, OnDes
   @Input() contents: PageContent[];
   @Input() parallaxData: ParallaxData;
 
-  constructor(protected log: NGXLogger) {
-    super(log);
+  constructor(protected log: NGXLogger, protected injector: Injector) {
+    super(log, injector);
     this.logPrefix = '[LANDING ZONE] -';
   }
 
   ngOnInit() {
     super.ngOnInit();
+  }
+
+  getInfo(): ComponentInfo {
+    return {
+      name: 'wc-landing-zone',
+      inputs: ['photos', 'contents', 'parallaxData']
+    };
   }
 
   ngOnDestroy() {
