@@ -14,7 +14,10 @@
     "serve": "http-server dist/$WC --gzip -c-1",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "--------------------": "----------------------------------------------------------------------------------------",
+    "watch-elegant-theme": "WC=elegantTheme npm run watch",
+    "serve-elegant-theme": "WC=elegantTheme npm run serve"
   },
   "private": true,
   "dependencies": {
