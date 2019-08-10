@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build-prod": "ng build $WC --prod --single-bundle --output-hashing=none",
-    "package-es5": "cat dist/$WC/{scripts,main-es5}.js | gzip > dist/$WC-es5.js.gz",
-    "package-es2015": "cat dist/$WC/{scripts,main-es2015}.js | gzip > dist/$WC-es2015.js.gz",
+    "package-es5": "cat dist/$WC/scripts.js dist/$WC/main-es5.js | gzip > dist/$WC-es5.js.gz",
+    "package-es2015": "cat dist/$WC/scripts.js dist/$WC/main-es2015.js | gzip > dist/$WC-es2015.js.gz",
     "delete-folder": "rm -r dist/$WC",
     "-------------------": "-----------------------------------------------------------------------------------------",
     "watch": "ng build $WC --single-bundle --sourceMap=true --watch",
@@ -16,8 +16,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "--------------------": "----------------------------------------------------------------------------------------",
-    "watch-elegant-theme": "WC=elegantTheme npm run watch",
-    "serve-elegant-theme": "WC=elegantTheme npm run serve"
+    "watch-elegant-theme": "WC=elegantTheme npm run watch & WC=elegantTheme npm run serve",
+    "serve-elegant-theme": "WC=elegantTheme npm run serve",
+    "create-bundle-elegant-theme": "WC=elegantTheme npm run create-bundles"
   },
   "private": true,
   "dependencies": {
