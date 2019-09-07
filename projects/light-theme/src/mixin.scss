@@ -1,0 +1,81 @@
+@mixin mediaDesktop() {
+  @media only all and (min-width: $small-display-width) and (min-height: $small-display-height)  {
+    @content;
+  }
+}
+
+@mixin mediaMobilePortrait() {
+  @media screen and (max-width: $small-display-width) {
+    @content;
+  }
+}
+
+@mixin mediaMobileLandscape() {
+  @media screen and (max-height: $small-display-height) {
+    @content;
+  }
+}
+
+@mixin fontSizeParagraphByMedia() {
+  @media screen and (min-width: $small-display-width) {
+    font-size: $font-size-desktop;
+    font-weight: $font-weight-desktop;
+  }
+  @media screen and (max-width: $small-display-width), screen and (max-height: $small-display-height) {
+    font-size: $font-size-mobile;
+    font-weight: $font-weight-mobile;
+  }
+}
+
+@mixin fontSizeIconByMedia($multiply: 1) {
+  @media screen and (min-width: $small-display-width) {
+    @include iconSize($font-size-desktop * $font-icon-multiply-desktop * $multiply);
+  }
+  @media screen and (max-width: $small-display-width), screen and (max-height: $small-display-height) {
+    @include iconSize($font-size-mobile * $font-icon-multiply-mobile * $multiply);
+  }
+}
+
+@mixin fontSizeH1ByMedia() {
+  @media screen and (min-width: $small-display-width) {
+    font-size: $font-size-desktop * $font-h1-multiply-desktop;
+    font-weight: $font-weight-desktop;
+  }
+  @media screen and (max-width: $small-display-width), screen and (max-height: $small-display-height) {
+    font-size: $font-size-mobile * $font-h1-multiply-mobile;
+    font-weight: $font-weight-mobile;
+  }
+}
+@mixin fontSizeSidenavWebAppByMedia() {
+  @media screen and (min-width: $small-display-width) {
+    font-size: $font-size-desktop * $font-h1-multiply-desktop;
+    font-weight: $font-weight-desktop;
+    @include aTagStyle();
+  }
+  @media screen and (max-width: $small-display-width), screen and (max-height: $small-display-height) {
+    font-size: $font-size-mobile * $font-h1-multiply-mobile;
+    font-weight: $font-weight-mobile;
+    @include aTagStyle();
+  }
+}
+
+@mixin aTagStyle() {
+  text-decoration: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  color: $text-primary-webapp-color;
+  margin-left: 5%;
+  max-width: 80%;
+}
+
+@mixin iconSize($size) {
+  color: $text-primary-webapp-color;
+  height: $size * 1.6;
+  width: $size * 1.6;
+  .mat-icon {
+    height: $size;
+    width: $size;
+    font-size: $size;
+    line-height: 1;
+  }
+}

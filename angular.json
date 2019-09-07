@@ -181,6 +181,84 @@
           }
         }
       }
+    },
+    "lightTheme": {
+      "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/light-theme",
+      "sourceRoot": "projects/light-theme/src",
+      "prefix": "wc",
+      "architect": {
+        "build": {
+          "builder": "ngx-build-plus:browser",
+          "options": {
+            "tsConfig": "projects/light-theme/tsconfig.lib.json",
+            "main": "projects/light-theme/src/main.ts",
+            "outputPath": "dist/lightTheme",
+            "index": "projects/light-theme/src/index.html",
+            "aot": false,
+            "assets": [],
+            "styles": [],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/light-theme/src/environments/environment.ts",
+                  "with": "projects/light-theme/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "test": {
+          "builder": "ngx-build-plus:karma",
+          "options": {
+            "main": "projects/light-theme/src/test.ts",
+            "tsConfig": "projects/light-theme/tsconfig.spec.json",
+            "karmaConfig": "projects/light-theme/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["projects/light-theme/tsconfig.lib.json", "projects/light-theme/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "serve": {
+          "builder": "ngx-build-plus:dev-server",
+          "options": {
+            "browserTarget": "light-theme:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "light-theme:build:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "web-components-demo"

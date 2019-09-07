@@ -1,0 +1,61 @@
+// css variables----------------------------------------
+
+:root {
+  // background color
+  --background-app: #0a0a0a;
+  --background-primary-color: #1d1d1d;
+  --background-secondary-color: #ffffff;
+  --background-error: #aa0000;
+
+  // text color
+  --text-primary-color: #ffffff;
+  --text-primary-dashboard-color: #ffffff;
+  --text-primary-webapp-color: #ffffff;
+  --text-secondary-webapp-color: #00ffff;
+  --text-third-webapp-color: #ff8600;
+
+  //animation velocity
+  --animation-velocity-webapp: 0.5s;
+
+  // sidenav color
+  --background-webapp-sidenav-color: #0a0a0a;
+  --background-dashboard-sidenav-color: #0a0a0a;
+}
+
+// sass variables---------------------------------------
+
+// background color
+$background-app: var(--background-app);
+$background-primary: var(--background-primary-color);
+$background-secondary: var(--background-secondary-color);
+$background-error: var(--background-error);
+$background-wepapp-sidenav: var(--background-webapp-sidenav-color);
+$background-dashboard-sidenav: var(--background-dashboard-sidenav-color);
+
+// color text
+$text-primary-color: var(--text-primary-color);
+$text-primary-dashboard-color: var(--text-primary-dashboard-color);
+$text-primary-webapp-color: var(--text-primary-webapp-color);
+$text-secondary-webapp-color: var(--text-secondary-webapp-color);
+$text-third-webapp-color: var(--text-third-webapp-color);
+
+// animation velocity
+$animation-velocity-webapp: var(--animation-velocity-webapp);
+
+// for mediaQuery
+$small-display-width: 700px;
+$small-display-height: 600px;
+
+//font
+$font-family: 'Roboto', sans-serif;
+//mobile font config
+$font-size-mobile: 16px;
+$font-weight-mobile: 300;
+$font-icon-multiply-mobile: 1.5;
+$font-h1-multiply-mobile: 2.1;
+// desktop font config
+$font-size-desktop: 20px;
+$font-weight-desktop: 300;
+$font-icon-multiply-desktop: 1.5;
+$font-h1-multiply-desktop: 2.1;
+

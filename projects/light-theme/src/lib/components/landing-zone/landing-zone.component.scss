@@ -1,0 +1,30 @@
+@import './../../../styles.scss';
+
+.landing-zone-container {
+  position: relative;
+  height: 100vh;
+  .photo {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  .cont-intro-text {
+    position: absolute;
+    top: calc(100% / 3);
+    left: 10%;
+    z-index: 1;
+    .first-intro-text > * {
+      margin: 0;
+      color: $text-primary-webapp-color;
+      @include fontSizeH1ByMedia();
+      position: relative;
+    }
+    .second-intro-text > * {
+      margin: 0;
+      color: $text-primary-webapp-color;
+      @include fontSizeParagraphByMedia();
+      text-align: right;
+    }
+  }
+}

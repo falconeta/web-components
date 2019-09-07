@@ -10,7 +10,7 @@
     "package-es5-compressed": "cat dist/$WC/main-es5.js | gzip > dist/$WC-es5.js.gz",
     "package-es2015-compressed": "cat dist/$WC/main-es2015.js | gzip > dist/$WC-es2015.js.gz",
     "delete-folder": "rm -r dist/$WC",
-    "---------------------------------------------------BASE-SCRIPTS---------------------------------------------------": "",
+    "---BASE-SCRIPTS---": "",
     "watch": "ng build $WC --single-bundle --sourceMap=true --watch",
     "create-bundles": "npm run build-prod && npm run package-es5 && npm run package-es2015 && npm run delete-folder",
     "create-bundles-compressed": "npm run build-prod && npm run package-es5-compressed && npm run package-es2015-compressed && npm run delete-folder",
@@ -18,11 +18,15 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "---------------------------------------------------ELEGANT-THEME-SCRIPTS---------------------------------------------------": "",
+    "---ELEGANT-THEME-SCRIPTS---": "",
     "watch-elegant-theme": "WC=elegantTheme npm run watch & WC=elegantTheme npm run serve",
     "serve-elegant-theme": "WC=elegantTheme npm run serve",
     "create-bundle-elegant-theme": "WC=elegantTheme npm run create-bundles",
-    "create-bundle-elegant-theme-compressed": "WC=elegantTheme npm run create-bundles"
+    "create-bundle-elegant-theme-compressed": "WC=elegantTheme npm run create-bundles",
+    "watch-light-theme": "WC=lightTheme npm run watch & WC=lightTheme npm run serve",
+    "serve-light-theme": "WC=lightTheme npm run serve",
+    "create-bundle-light-theme": "WC=lightTheme npm run create-bundles",
+    "create-bundle-light-theme-compressed": "WC=lightTheme npm run create-bundles"
   },
   "private": true,
   "dependencies": {

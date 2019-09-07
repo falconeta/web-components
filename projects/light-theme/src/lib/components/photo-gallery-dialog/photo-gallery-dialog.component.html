@@ -1,0 +1,32 @@
+<div class="dialog-container">
+  <div class="overlay-close-button">
+    <div class="close-button">
+      <button (click)="onClose()" mat-icon-button>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div mat-dialog-content class="photo-dialog-content">
+    <div class="overlay-nav-button">
+      <div class="cont-nav-button">
+        <button mat-icon-button (click)="navigatePhoto('-')" [disabled]="index === 0">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-icon-button (click)="navigatePhoto('+')" [disabled]="index === photos?.length - 1">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="cont-image" *ngFor="let photo of photos; let i = index">
+      <img [src]="photo.url" class="image" [ngClass]="{ disable: index !== i }" alt="" />
+    </div>
+
+    <div class="overlay-progress-bar">
+      <div class="cont-progress-bar">
+        <mat-progress-bar color="warn" mode="determinate" [value]="percentProgressBar"></mat-progress-bar>
+      </div>
+    </div>
+  </div>
+</div>
