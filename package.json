@@ -23,6 +23,7 @@
     "serve-elegant-theme": "WC=elegantTheme npm run serve",
     "create-bundle-elegant-theme": "WC=elegantTheme npm run create-bundles",
     "create-bundle-elegant-theme-compressed": "WC=elegantTheme npm run create-bundles",
+    "---LIGHT-THEME-SCRIPTS---": "",
     "watch-light-theme": "WC=lightTheme npm run watch & WC=lightTheme npm run serve",
     "serve-light-theme": "WC=lightTheme npm run serve",
     "create-bundle-light-theme": "WC=lightTheme npm run create-bundles",
