@@ -9,16 +9,17 @@ import { MatProgressBarModule, MatButtonModule, MatIconModule } from '@angular/m
 import { environment } from '../environments/environment';
 
 import { LoggerMonitor, RegisterComponentService } from './services';
-import { LandingZoneComponent, BaseComponent, PhotoGalleryDialogComponent, HeaderComponent } from './components';
+import { LandingZoneComponent, BaseComponent, PhotoGalleryDialogComponent, HeaderComponent, LandingZoneEditComponent } from './components';
 import { ParallaxDirective } from './directives';
 import { InfoThemeComponent } from './info-theme/info-theme.component';
 
 const material = [MatProgressBarModule, MatButtonModule, MatIconModule];
 
-const components: typeof BaseComponent[] = [LandingZoneComponent, HeaderComponent, PhotoGalleryDialogComponent];
+const components: typeof BaseComponent[] = [LandingZoneComponent, LandingZoneEditComponent, HeaderComponent, PhotoGalleryDialogComponent];
 const componentsWithSelector = new Map<string, typeof BaseComponent>([
   ['wc-info-theme', InfoThemeComponent],
   ['wc-landing-zone', LandingZoneComponent],
+  ['wc-landing-zone-edit', LandingZoneEditComponent],
   ['wc-header', HeaderComponent],
   ['wc-photo-gallery-dialog', PhotoGalleryDialogComponent]
 ]);
