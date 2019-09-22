@@ -7,7 +7,7 @@ import { PagePhoto } from '../../interfaces/page-collection';
   selector: 'wc-photo-gallery-dialog',
   templateUrl: './photo-gallery-dialog.component.html',
   styleUrls: ['./photo-gallery-dialog.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class PhotoGalleryDialogComponent extends BaseComponent implements OnInit, OnChanges {
   public percentProgressBar: number;

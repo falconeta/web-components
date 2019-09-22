@@ -14,13 +14,13 @@
     top: calc(100% / 3);
     left: 10%;
     z-index: 1;
-    .first-intro-text > * {
+    ::ng-deep .first-intro-text > * {
       margin: 0;
       color: $text-primary-webapp-color;
       @include fontSizeH1ByMedia();
       position: relative;
     }
-    .second-intro-text > * {
+    ::ng-deep .second-intro-text > * {
       margin: 0;
       color: $text-primary-webapp-color;
       @include fontSizeParagraphByMedia();

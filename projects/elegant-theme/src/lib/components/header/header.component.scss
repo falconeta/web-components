@@ -9,7 +9,7 @@
     background-position: center;
     background-size: cover;
   }
-  .cont-intro-text {
+  ::ng-deep .cont-intro-text {
     position: absolute;
     top: calc(100% / 3);
     left: 10%;

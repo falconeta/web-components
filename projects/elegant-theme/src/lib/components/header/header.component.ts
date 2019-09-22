@@ -8,7 +8,7 @@ import { ComponentInfo } from '../../interfaces';
   selector: 'wc-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class HeaderComponent extends BaseComponent implements OnInit {
   @Input() photos: PagePhoto[];

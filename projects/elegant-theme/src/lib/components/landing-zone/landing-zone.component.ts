@@ -8,7 +8,7 @@ import { ParallaxData, ComponentInfo } from '../../interfaces';
   selector: 'wc-landing-zone',
   templateUrl: './landing-zone.component.html',
   styleUrls: ['./landing-zone.component.scss'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class LandingZoneComponent extends BaseComponent implements OnInit, OnDestroy {
   @Input() photos: PagePhoto[];
