@@ -15,3 +15,8 @@ export interface PageContent {
   position: number;
   tempPosition: number;
 }
+
+export interface IPageComponentData {
+  photos: PagePhoto[];
+  contents: PageContent[];
+}

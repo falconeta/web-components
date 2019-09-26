@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewEncapsulation, Input, OnDestroy, Injector } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, OnDestroy, Injector, Output, EventEmitter } from '@angular/core';
 import { BaseComponent } from '../../base.component';
 import { NGXLogger } from 'ngx-logger';
-import { PagePhoto, PageContent } from '../../../interfaces/page-collection';
+import { PagePhoto, PageContent, IPageComponentData } from '../../../interfaces/page-collection';
 import { ParallaxData, ComponentInfo } from '../../../interfaces';
 
 
@@ -15,6 +15,7 @@ export class LandingZoneEditComponent extends BaseComponent implements OnInit, O
   @Input() photos: PagePhoto[];
   @Input() contents: PageContent[];
   @Input() parallaxData: ParallaxData;
+  @Output() pageComponentData: EventEmitter<IPageComponentData>;
 
   constructor(protected log: NGXLogger, protected injector: Injector) {
     super(log, injector);
