@@ -42,7 +42,7 @@
     "@angular/platform-browser": "~9.0.0-next.8",
     "@angular/platform-browser-dynamic": "~9.0.0-next.8",
     "@angular/router": "~9.0.0-next.8",
-    "ngx-build-plus": "^8.1.4",
+    "ngx-build-plus": "^8.1.5",
     "ngx-logger": "^4.0.3",
     "rxjs": "~6.5.3",
     "tslib": "^1.9.0",
