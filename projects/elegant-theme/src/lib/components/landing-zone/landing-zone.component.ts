@@ -3,6 +3,7 @@ import { BaseComponent } from '../base.component';
 import { NGXLogger } from 'ngx-logger';
 import { PagePhoto, PageContent } from '../../interfaces/page-collection';
 import { ParallaxData, ComponentInfo } from '../../interfaces';
+import { ComponentInputs, ComponentOutputs } from '../../enums';
 
 @Component({
   selector: 'wc-landing-zone',
@@ -27,7 +28,8 @@ export class LandingZoneComponent extends BaseComponent implements OnInit, OnDes
   getInfo(): ComponentInfo {
     return {
       name: 'wc-landing-zone',
-      inputs: ['photos', 'contents', 'parallaxData']
+      inputs: [ComponentInputs.photos, ComponentInputs.contents, ComponentInputs.parallaxData],
+      outputs: [ComponentOutputs.SavePhoto]
     };
   }
 

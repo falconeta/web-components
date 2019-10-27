@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewEncapsulation, Input, Injector } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, Injector, OnDestroy } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { NGXLogger } from 'ngx-logger';
 import { PagePhoto, PageContent } from '../../interfaces/page-collection';
 import { ComponentInfo } from '../../interfaces';
+import { ComponentInputs } from '../../enums';
 
 @Component({
   selector: 'wc-header',
@@ -10,7 +11,7 @@ import { ComponentInfo } from '../../interfaces';
   styleUrls: ['./header.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class HeaderComponent extends BaseComponent implements OnInit {
+export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy {
   @Input() photos: PagePhoto[];
   @Input() contents: PageContent[];
 
@@ -23,10 +24,15 @@ export class HeaderComponent extends BaseComponent implements OnInit {
     super.ngOnInit();
   }
 
+  ngOnDestroy() {
+    this.log.debug(`${this.logPrefix} destroyed...`);
+  }
+
   getInfo(): ComponentInfo {
     return {
       name: 'wc-header',
-      inputs: ['photos', 'contents']
+      inputs: [ComponentInputs.photos, ComponentInputs.contents],
+      outputs: []
     };
   }
 }

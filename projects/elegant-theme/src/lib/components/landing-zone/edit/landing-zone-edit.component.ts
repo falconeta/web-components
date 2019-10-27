@@ -4,7 +4,6 @@ import { NGXLogger } from 'ngx-logger';
 import { PagePhoto, PageContent, IPageComponentData } from '../../../interfaces/page-collection';
 import { ParallaxData, ComponentInfo } from '../../../interfaces';
 
-
 @Component({
   selector: 'wc-landing-zone-edit',
   templateUrl: './landing-zone-edit.component.html',
@@ -15,11 +14,13 @@ export class LandingZoneEditComponent extends BaseComponent implements OnInit, O
   @Input() photos: PagePhoto[];
   @Input() contents: PageContent[];
   @Input() parallaxData: ParallaxData;
-  @Output() pageComponentData: EventEmitter<IPageComponentData>;
+
+  @Output() savePhoto: EventEmitter<IPageComponentData>;
 
   constructor(protected log: NGXLogger, protected injector: Injector) {
     super(log, injector);
     this.logPrefix = '[LANDING ZONE EDIT] -';
+    this.savePhoto = new EventEmitter();
   }
 
   ngOnInit() {
@@ -28,6 +29,10 @@ export class LandingZoneEditComponent extends BaseComponent implements OnInit, O
 
   getInfo(): ComponentInfo {
     return null;
+  }
+
+  emitAction() {
+    this.savePhoto.emit({ photos: this.photos, contents: this.contents });
   }
 
   ngOnDestroy() {

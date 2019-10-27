@@ -1,7 +1,7 @@
 <div class="landing-zone-edit-container flex-column">
   <div class="flex-row content-row">
     <div class="flex-column">
-      <button mat-raised-button>Action</button>
+      <button mat-raised-button (click)="emitAction()">Action</button>
     </div>
     <div class="flex-column">
       <img *ngIf="photos && photos[0]"  [src]="photos[0].url" alt="" />

@@ -1,4 +1,7 @@
+import { ComponentInputs, ComponentOutputs } from '../enums';
+
 export interface ComponentInfo {
   name: string;
-  inputs: string[];
+  inputs: ComponentInputs[];
+  outputs: ComponentOutputs[];
 }
