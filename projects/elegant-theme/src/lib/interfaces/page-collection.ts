@@ -2,9 +2,10 @@
 export interface PagePhoto {
   id?: string;
   idPhoto: string;
+  metadatas: string[];
   url?: string;
   position?: number;
-  tempPosition: number;
+  tempPosition?: number;
 }
 
 export interface PageContent {

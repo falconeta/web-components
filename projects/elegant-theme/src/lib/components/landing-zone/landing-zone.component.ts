@@ -29,7 +29,7 @@ export class LandingZoneComponent extends BaseComponent implements OnInit, OnDes
     return {
       name: 'wc-landing-zone',
       inputs: [ComponentInputs.photos, ComponentInputs.contents, ComponentInputs.parallaxData],
-      outputs: [ComponentOutputs.SavePhoto]
+      outputs: [ComponentOutputs.SavePhotos, ComponentOutputs.OpenPhotosChooser]
     };
   }
 

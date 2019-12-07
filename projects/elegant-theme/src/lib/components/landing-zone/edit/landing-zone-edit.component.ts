@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input, OnDestroy, Injector, Output, EventEmitter } from '@angular/core';
 import { BaseComponent } from '../../base.component';
 import { NGXLogger } from 'ngx-logger';
-import { PagePhoto, PageContent, IPageComponentData } from '../../../interfaces/page-collection';
+import { PagePhoto, PageContent } from '../../../interfaces/page-collection';
 import { ParallaxData, ComponentInfo } from '../../../interfaces';
 
 @Component({
@@ -15,12 +15,14 @@ export class LandingZoneEditComponent extends BaseComponent implements OnInit, O
   @Input() contents: PageContent[];
   @Input() parallaxData: ParallaxData;
 
-  @Output() savePhoto: EventEmitter<IPageComponentData>;
+  @Output() savePhotos: EventEmitter<PagePhoto[]>;
+  @Output() openPhotosChooser: EventEmitter<any>;
 
   constructor(protected log: NGXLogger, protected injector: Injector) {
     super(log, injector);
     this.logPrefix = '[LANDING ZONE EDIT] -';
-    this.savePhoto = new EventEmitter();
+    this.savePhotos = new EventEmitter();
+    this.openPhotosChooser = new EventEmitter();
   }
 
   ngOnInit() {
@@ -31,8 +33,8 @@ export class LandingZoneEditComponent extends BaseComponent implements OnInit, O
     return null;
   }
 
-  emitAction() {
-    this.savePhoto.emit({ photos: this.photos, contents: this.contents });
+  public openPhotosChoserHandler() {
+    this.openPhotosChooser.emit();
   }
 
   ngOnDestroy() {
