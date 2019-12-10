@@ -3,8 +3,8 @@
     <div class="flex-column">
       <button mat-raised-button (click)="openPhotosChoserHandler()">open photo chooser</button>
     </div>
-    <div class="flex-column">
-      <img *ngIf="photos && photos[0]"  [src]="photos[0].url" alt="" />
+    <div class="flex-column cont-image">
+      <img class="background-image" *ngIf="photos && photos[0]"  [src]="photos[0].url" alt="" />
     </div>
   </div>
 </div>
