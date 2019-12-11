@@ -1,5 +1,5 @@
 import { NGXLogger } from 'ngx-logger';
-import { Directive, ElementRef, Input, OnInit, OnDestroy, Renderer2, OnChanges, SimpleChanges } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, OnDestroy, Renderer2, OnChanges, SimpleChanges, NgZone } from '@angular/core';
 import { UnitAvailable } from '../../enums';
 import { ElementPosition } from '../../interfaces';
 
@@ -11,12 +11,13 @@ export class ParallaxDirective implements OnInit, OnDestroy, OnChanges {
   @Input() unit: UnitAvailable;
   @Input() scrollData: UIEvent;
   @Input() containerResized: Element;
+  @Input() direction: 'up' | 'down';
 
   private logPrefix: string;
   private scrollValue: number;
   private position: ElementPosition;
 
-  constructor(private elementRef: ElementRef, private log: NGXLogger, private renderer: Renderer2) {
+  constructor(private elementRef: ElementRef, private log: NGXLogger, private readonly zone: NgZone, private renderer: Renderer2) {
     this.logPrefix = '[PARALLAX DIRECTIVE] -';
     this.ratio = 1;
     this.unit = UnitAvailable.PX;
@@ -64,21 +65,27 @@ export class ParallaxDirective implements OnInit, OnDestroy, OnChanges {
   }
 
   private scrollListenerSUB() {
-    this.scrollValue = this.scrollData.target['scrollTop'];
-    if (this.scrollValue < this.position.bottom) {
-      this.changeTopValue();
-    }
+    this.zone.runOutsideAngular(() => {
+      this.scrollValue = this.scrollData.target['scrollTop'];
+      if (this.scrollValue < this.position.bottom) {
+        this.changeTopValue();
+      }
+    });
   }
 
   private scrollListenerAfterWindowResizedSUB() {
-    this.elementRef.nativeElement.style.top = null;
+    this.renderer.setStyle(this.elementRef.nativeElement, 'transform', null);
     this.scrollValue = this.containerResized.scrollTop;
     this.initElement();
     this.changeTopValue();
   }
 
   private changeTopValue() {
-    this.elementRef.nativeElement.style.top = this.position.top - this.scrollValue * this.ratio + this.unit;
+    this.renderer.setStyle(
+      this.elementRef.nativeElement,
+      'transform',
+      `translateY(${(this.direction === 'down' ? '' : '-') + (this.scrollValue * this.ratio) + this.unit})`
+    );
   }
 
   ngOnDestroy() {
