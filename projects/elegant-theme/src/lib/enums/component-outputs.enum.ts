@@ -1,4 +1,5 @@
 export enum ComponentOutputs {
   SavePhotos = 'savePhotos',
-  OpenPhotosChooser = 'openPhotosChooser'
+  OpenPhotosChooser = 'openPhotosChooser',
+  DismissCall = 'dismissCall'
 }
