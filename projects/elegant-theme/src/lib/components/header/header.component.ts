@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input, Injector, OnDestroy } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { NGXLogger } from 'ngx-logger';
-import { PagePhoto, PageContent } from '../../interfaces/page-collection';
-import { ComponentInfo } from '../../interfaces';
+import { ComponentInfo, ISubPhoto, ISubContent } from '../../interfaces';
 import { ComponentInputs } from '../../enums';
 
 @Component({
@@ -12,8 +11,8 @@ import { ComponentInputs } from '../../enums';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy {
-  @Input() photos: PagePhoto[];
-  @Input() contents: PageContent[];
+  @Input() photos: ISubPhoto[];
+  @Input() contents: ISubContent[];
 
   constructor(protected log: NGXLogger, protected injector: Injector) {
     super(log, injector);

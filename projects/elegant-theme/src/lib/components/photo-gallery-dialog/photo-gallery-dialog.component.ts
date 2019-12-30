@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter, OnChanges, SimpleChanges, Injector } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { NGXLogger } from 'ngx-logger';
-import { PagePhoto } from '../../interfaces/page-collection';
+import { ISubPhoto } from '../../interfaces';
 
 @Component({
   selector: 'wc-photo-gallery-dialog',
@@ -12,7 +12,7 @@ import { PagePhoto } from '../../interfaces/page-collection';
 export class PhotoGalleryDialogComponent extends BaseComponent implements OnInit, OnChanges {
   public percentProgressBar: number;
 
-  @Input() photos: PagePhoto[];
+  @Input() photos: ISubPhoto[];
   @Input() index: number;
 
   @Output() closed: EventEmitter<string>;

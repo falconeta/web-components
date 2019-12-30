@@ -1,6 +1,7 @@
-import { PagePhoto } from './page-collection';
+import { ISubPhoto } from './sub-photo.interface';
+
 
 export interface IPhotosChooserEmitter {
   photoLimit: number;
-  callBack: (photo: PagePhoto) => void;
+  callBack: (photo: ISubPhoto) => void;
 }
