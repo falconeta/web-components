@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewEncapsulation, Input, OnDestroy, Injector } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { NGXLogger } from 'ngx-logger';
-import { ParallaxData, ComponentInfo, ISubPhoto, ISubContent } from '../../interfaces';
+import { ParallaxData, ComponentInfo, ISubContent } from '../../interfaces';
 import { ComponentInputs, ComponentOutputs } from '../../enums';
+import { PhotoCollectionModel } from '../../models';
 
 @Component({
   selector: 'wc-landing-zone',
@@ -11,7 +12,7 @@ import { ComponentInputs, ComponentOutputs } from '../../enums';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class LandingZoneComponent extends BaseComponent implements OnInit, OnDestroy {
-  @Input() photos: ISubPhoto[];
+  @Input() photos: PhotoCollectionModel[];
   @Input() contents: ISubContent[];
   @Input() parallaxData: ParallaxData;
 

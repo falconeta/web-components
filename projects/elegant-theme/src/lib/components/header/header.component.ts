@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewEncapsulation, Input, Injector, OnDestroy } from '@angular/core';
 import { BaseComponent } from '../base.component';
 import { NGXLogger } from 'ngx-logger';
-import { ComponentInfo, ISubPhoto, ISubContent } from '../../interfaces';
+import { ComponentInfo, ISubContent } from '../../interfaces';
 import { ComponentInputs } from '../../enums';
+import { PhotoCollectionModel } from '../../models';
 
 @Component({
   selector: 'wc-header',
@@ -11,7 +12,7 @@ import { ComponentInputs } from '../../enums';
   encapsulation: ViewEncapsulation.Emulated
 })
 export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy {
-  @Input() photos: ISubPhoto[];
+  @Input() photos: PhotoCollectionModel[];
   @Input() contents: ISubContent[];
 
   constructor(protected log: NGXLogger, protected injector: Injector) {

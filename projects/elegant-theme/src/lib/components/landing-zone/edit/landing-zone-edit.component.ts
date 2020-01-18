@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewEncapsulation, Input, OnDestroy, Injector, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { BaseComponent } from '../../base.component';
 import { NGXLogger } from 'ngx-logger';
-import { ParallaxData, ComponentInfo, IPhotosChooserEmitter, ISubPhoto, ISubContent, IDatasToSave } from '../../../interfaces';
+import { ParallaxData, ComponentInfo, IPhotosChooserEmitter, ISubContent, IDatasToSave } from '../../../interfaces';
 import { Observable, of } from 'rxjs';
+import { PhotoCollectionModel } from '../../../models';
 
 @Component({
   selector: 'wc-landing-zone-edit',
@@ -13,7 +14,7 @@ import { Observable, of } from 'rxjs';
 export class LandingZoneEditComponent extends BaseComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @Input()
-  set photos(photos: ISubPhoto[]) {
+  set photos(photos: PhotoCollectionModel[]) {
     this.photoSelected = photos[0];
   }
 
@@ -24,7 +25,7 @@ export class LandingZoneEditComponent extends BaseComponent implements OnInit, O
   @Output() openPhotosChooser: EventEmitter<IPhotosChooserEmitter>;
   @Output() dismissCall: EventEmitter<() => Observable<null>>;
 
-  public photoSelected: ISubPhoto;
+  public photoSelected: PhotoCollectionModel;
 
   constructor(protected log: NGXLogger, protected injector: Injector) {
     super(log, injector);
@@ -54,7 +55,7 @@ export class LandingZoneEditComponent extends BaseComponent implements OnInit, O
   }
 
   public openPhotosChoserHandler() {
-    this.openPhotosChooser.emit({ photoLimit: 1, callBack: this.setNewPhoto.bind(this) });
+    this.openPhotosChooser.emit({ photoLimit: 1, callBack: this.setNewPhoto.bind(this), photosSelected: [this.photoSelected] });
   }
 
   private onDismiss(): Observable<boolean> {
@@ -62,11 +63,11 @@ export class LandingZoneEditComponent extends BaseComponent implements OnInit, O
     return of(null);
   }
 
-  private setNewPhoto(photo: ISubPhoto) {
-    if (photo) {
-      this.log.debug(`${this.logPrefix} setNewPhoto`, photo);
-      this.photoSelected = photo;
-      this.datasToSave.emit({ photos: [photo] });
+  private setNewPhoto(photos: PhotoCollectionModel[]) {
+    if (photos) {
+      this.log.debug(`${this.logPrefix} setNewPhoto`, photos);
+      this.photoSelected = photos[0];
+      this.datasToSave.emit({ photos });
     }
   }
 

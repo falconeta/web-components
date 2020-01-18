@@ -1,7 +1,7 @@
-import { ISubPhoto } from './sub-photo.interface';
-
+import { PhotoCollectionModel } from './../models';
 
 export interface IPhotosChooserEmitter {
   photoLimit: number;
-  callBack: (photo: ISubPhoto) => void;
+  callBack: (photo: PhotoCollectionModel[]) => void;
+  photosSelected: PhotoCollectionModel[];
 }
