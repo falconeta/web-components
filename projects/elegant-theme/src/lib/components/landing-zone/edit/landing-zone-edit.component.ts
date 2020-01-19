@@ -55,7 +55,7 @@ export class LandingZoneEditComponent extends BaseComponent implements OnInit, O
   }
 
   public openPhotosChoserHandler() {
-    this.openPhotosChooser.emit({ photoLimit: 1, callBack: this.setNewPhoto.bind(this), photosSelected: [this.photoSelected] });
+    this.openPhotosChooser.emit({ photoLimit: 1, callBack: this.setNewPhoto.bind(this), photosSelected: this.photoSelected ? [this.photoSelected] : null });
   }
 
   private onDismiss(): Observable<boolean> {
