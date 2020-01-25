@@ -261,5 +261,8 @@
       }
     }
   },
-  "defaultProject": "web-components-demo"
+  "defaultProject": "web-components-demo",
+  "cli": {
+    "analytics": false
+  }
 }
