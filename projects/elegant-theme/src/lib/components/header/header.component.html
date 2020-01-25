@@ -1,5 +1,8 @@
 <div class="header-container ">
-  <div *ngIf="photos?.length" class="photo" [ngStyle]="{ 'background-image': 'url(' + photos[0].url + ')' }"></div>
+  <div *ngIf="photos?.length;else defaultImage" class="photo" [ngStyle]="{ 'background-image': 'url(' + photos[0].url + ')' }"></div>
+  <ng-template #defaultImage>
+    <div class="photo" [ngStyle]="{ 'background-image': 'url(assets/default-image.jpg)' }"></div>
+  </ng-template>
   <div class="cont-intro-text" *ngIf="contents?.length">
     <div class="first-intro-text" [innerHTML]="contents[0].value"></div>
     <div *ngIf="contents?.length > 1" class="second-intro-text" [innerHTML]="contents[1].value"></div>

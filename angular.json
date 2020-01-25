@@ -123,7 +123,7 @@
             "outputPath": "dist/elegantTheme",
             "index": "projects/elegant-theme/src/index.html",
             "aot": false,
-            "assets": [],
+            "assets": ["projects/elegant-theme/src/assets"],
             "styles": [],
             "scripts": []
           },
