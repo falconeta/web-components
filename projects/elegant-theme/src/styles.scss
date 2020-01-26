@@ -1,3 +1,17 @@
 @import 'variables';
 @import 'mixin';
 @import 'material-custom-theme';
+
+.flex-row,
+.flex-column {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}

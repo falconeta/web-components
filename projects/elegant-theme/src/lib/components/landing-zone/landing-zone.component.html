@@ -1,7 +1,7 @@
 <div class="landing-zone-container ">
   <div *ngIf="photos?.length;else defaultImage" class="photo" [ngStyle]="{ 'background-image': 'url(' + photos[0].url + ')' }"></div>
   <ng-template #defaultImage>
-    <div class="photo" [ngStyle]="{ 'background-image': 'url(assets/default-image.jpg)' }"></div>
+    <mat-icon class="flex-row default-icon">image</mat-icon>
   </ng-template>
   <div wcParallax [ratio]="1.5" [scrollData]="parallaxData?.scroll" [containerResized]="parallaxData?.containerElement" class="cont-intro-text" *ngIf="contents?.length">
     <div class="first-intro-text" [innerHTML]="contents[0].value"></div>

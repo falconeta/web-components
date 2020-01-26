@@ -2,13 +2,33 @@
 
 .header-container {
   position: relative;
-  height: 50%;
+  height: 50vh;
+  overflow: hidden;
   .photo {
     height: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
+  .default-icon {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background: #d8d8d8;
+    font-size: calc(8vw + 8vh);
+    color: #4a4a4a;
+  }
+
+  &.preview {
+    height: 50%;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    .default-icon {
+      font-size: calc(4vw + 4vh);
+    }
+  }
+
   ::ng-deep .cont-intro-text {
     position: absolute;
     top: calc(100% / 3);
