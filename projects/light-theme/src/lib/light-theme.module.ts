@@ -4,7 +4,9 @@ import { Injector, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { LoggerModule, NGXLogger } from 'ngx-logger';
 
-import { MatProgressBarModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { environment } from '../environments/environment';
 
